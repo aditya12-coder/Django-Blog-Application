@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block title %} Blog Home {% endblock title %}
+
+    {% block js %}
+      <script>
+      let previews=document.getElementsByClassName('preview');
+      Array.from(previews).forEach((element))=>({
+          element.innerHTML=element.innerText;
+      });
+    </script>
+
+      {% endblock js %}
+
+
+{% block blogactive %} active {% endblock blogactive %}
+
+{% block body %}
+
+
+
+      <link rel="stylesheet" type="text/css" href="https://unpkg.com/tailwindcss@%5E1.0/dist/tailwind.min.css">
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0" nonce="UmlWxAQ0"></script>
+<div class="container" >
+  <section  class="text-gray-600 my-0.5 body-font overflow-hidden">
+  <div class="container px-5 py-10 mx-auto">
+    <div class="-my-8 divide-y-2 divide-gray-100">
+      {% for post in allPosts  %}
+      <div class="py-8 flex flex-wrap md:flex-nowrap">
+        <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+          <span class="font-semibold title-font text-gray-700">Article  by {{post.author}} ({{post.views}} views)</span>
+          <span class="mt-1 text-gray-500 text-sm">{{post.timeStamp}}</span>
+          <br>
+
+
+    <div   class="fb-like" data-href="https://21aditya.pythonanywhere.com/blog/{{post.slug}}"  data-width=""  data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+
+        </div>
+        <div class="md:flex-grow">
+          <h2 class="text-2xl font-medium text-gray-900 title-font mb-2"><a style="color: crimson;" href="/blog/{{post.slug}}">{{post.title}}</a></h2>
+          <p class="leading-relaxed">{{post.content|safe |truncatechars:100}}</p>
+          <a href="/blog/{{post.slug}}" class="text-indigo-500 inline-flex items-center mt-4" style="color: crimson;">Continue watching
+            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="col text-center">
+    {% if allPosts.has_previous %}
+    <a href="?page={{allPosts.previous_page_number}}" class="btn btn-danger float-left">Previous</a>
+
+    {% else %}
+    <a href="#" class="btn btn-danger float-left disabled">Previous</a>
+    {% endif %}
+
+    {% if allPosts.has_next %}
+    <a href="?page={{allPosts.next_page_number}}" id="next" class="btn btn-danger  float-right ">Next</a>
+    {% else %}
+    <a href="#" class="btn btn-danger disabled float-right " id="next">Next</a>
+    {% endif %}
+</div>
+
+</div>
+</div>
+</section>
+
+
+
+
+
+    <style type="text/css">
+    * {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: blueviolet;
+}
+
+
+
+
+.container {
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: .25rem;
+  background-color: white;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+ {% endblock %}
+

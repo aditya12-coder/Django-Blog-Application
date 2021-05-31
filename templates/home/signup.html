@@ -1,0 +1,96 @@
+{% extends 'base.html' %} {% block title %} Register{% endblock title %} {% load
+static %} {% block body %} {% load crispy_forms_tags %} {% load static %}
+<div class="container mt-3">
+      {% if otp %}
+      <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+
+            <h3 class="float-left">Verify Your Email</h3>
+
+        </div>
+          <input type="hidden" name="usr" value="{{usr.username}}" />
+          <div class="input-group mt-5 mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">OTP</span>
+            </div>
+            <style type="text/css">
+              #otp {
+                box-shadow: none;
+                outline: none;
+              }
+            </style>
+            <input
+              id="otp"
+              onkeyup="manage(this)"
+              type="text"
+              class="form-control "
+              placeholder="Enter Your OTP"
+              aria-label="OTP"
+              aria-describedby="basic-addon1"
+              name="otp"
+            />
+          </div>
+        </fieldset>
+
+        <div class="form-group">
+          <button
+            class="btn btn-danger"
+            disabled=""
+            id="verifybtn"
+            type="submit"
+          >
+            Verify
+          </button>
+        </div>
+      </form>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+      {% else %}
+      <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">{{ form|crispy }}</fieldset>
+        <div class="form-group">
+          <button class="btn btn-danger" id="signupbtn1" type="submit">
+
+            Sign Up
+          </button>
+          <small class="float-right text-muted">Already have a Account ?<a href="{% url 'login' %}" class="text-dark"> Login</a></small>
+        </div>
+      </form>
+      {% endif %}
+      <br />
+</div>
+<script>
+  function manage(txt) {
+    var bt = document.getElementById("signupbtn1");
+    var bt2 = document.getElementById("verifybtn");
+    if (otp.value != "") {
+      bt2.disabled = false;
+    } else {
+      bt2.disabled = true;
+    }
+  }
+</script>
+<style>
+  .form-group{
+    box-shadow: none;
+    outline: none;
+  }
+</style>
+ {% endblock %}

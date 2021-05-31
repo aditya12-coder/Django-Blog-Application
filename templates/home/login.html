@@ -1,0 +1,90 @@
+
+{% extends 'base.html'%}
+
+
+{% block title %} Login {% endblock title %}
+{% block body %}
+{% load crispy_forms_tags %}
+{% load static %}
+<div class="container  h-100 mt-5">
+
+   
+   {% if otp %}
+   <form method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+
+          <h3 class="float-left">Verify Your Email</h3>
+
+      </div>
+        <input type="hidden" name="usr" value="{{usr.username}}" />
+        <div class="input-group mt-5 mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">OTP</span>
+          </div>
+          <style type="text/css">
+            #otp {
+              box-shadow: none;
+              outline: none;
+            }
+          </style>
+          <input
+            id="otp"
+            onkeyup="manage(this)"
+            type="text"
+            class="form-control "
+            placeholder="Enter Your OTP"
+            aria-label="OTP"
+            aria-describedby="basic-addon1"
+            name="otp"
+          />
+        </div>
+      </fieldset>
+
+      <div class="form-group">
+        <button
+          class="btn btn-danger"
+      
+          id="verifybtn"
+          type="submit"
+        >
+          Verify
+        </button>
+      </div>
+    </form>
+                 {% else %}              
+                  <form method="POST">
+                     {% csrf_token %}
+                      <fieldset class="form-group">
+                         <legend class="border-bottom display">
+                              <h3 class="float-left">Login</h3>
+                           </legend>
+
+
+                           
+                          {{ form|crispy }}
+
+
+                      </fieldset>
+                      <div class="form-group">
+                          <button class="btn btn-danger" type="submit">Log In</button>
+                          <small class="float-right text-muted"><a href="{% url 'password_reset' %} "class="text-dark"> Forgotten Password?</a></small>
+
+                        </div>
+                        <small class="float-right text-muted">Dont have a Account ? <a href="/signup" class="text-dark"> Signup</a></small>
+
+
+                  </form>
+                  {% endif %}
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

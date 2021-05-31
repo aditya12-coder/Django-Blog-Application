@@ -1,0 +1,102 @@
+{% extends 'base.html' %} {% block title %} Contact{% endblock title %} {% block contactactive %} active {% endblock contactactive %} {% block body %}
+
+<div class="container my-3">
+  <h3>Contact AIO</h3>
+
+  <form action="/contact" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name</label>
+
+      <input
+        type="text"
+        class="form-control"
+        id="contactName"
+        name="name"
+        aria-describedby="name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="contactEmail"
+        name="email"
+        aria-describedby="emailHelp"
+      />
+      <small id="emailHelp" class="form-text text-muted"
+        >We'll never share your email with anyone else.</small
+      >
+      <div id="error_message_email"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input s type="tel" class="form-control" id="ContactPhone" name="phone" />
+      <div id="error_message_phone"></div>
+    </div>
+    
+        <input
+          type="hidden"
+          name="info"
+          class="form-control"
+          id="ip"
+        />
+      <script> 
+        $.get("https://ipinfo.io", function(response) { 
+            var text = document.getElementById('ip'); 
+            text.value = response.ip;
+        }, "json") 
+
+    </script>
+
+<script>
+
+
+  // var url2 = 'ghi';
+  // var finalurl = url + url2
+  // alert(finalurl);
+
+        // const sleep = (milliseconds) => {
+        //   return new Promise(resolve => setTimeout(resolve, milliseconds))
+        // }
+        // sleep(2000).then(() => {
+        //   var text = document.getElementById('ip').value; 
+        //   var url = 'https://ipgeolocation.abstractapi.com/v1/?api_key=b70d59041b71455ab753c78956f6a8b8&ip_address=';
+        //   console.log(text)
+        //   var finalUrl = url + text;
+        //   // console.log(finalUrl);
+        //    $.getJSON('https://ipgeolocation.abstractapi.com/v1/?api_key=b70d59041b71455ab753c78956f6a8b8&ip_address='+ document.getElementById('ip').value, function(data) {
+        //     // var text = document.getElementById('ip').value; 
+        //     // var url = 'https://ipgeolocation.abstractapi.com/v1/?api_key=b70d59041b71455ab753c78956f6a8b8&ip_address=';
+        //     // var finalUrl = url + text;
+        //     console.log(data);
+            
+        //   })
+ 
+        // })
+$.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=b70d59041b71455ab753c78956f6a8b8&ip_address=103.10.29.126", function(data) {
+  console.log(data);
+})
+</script>
+
+
+
+
+    <div class="form-group">
+      <label for="content">Describe your issue :</label>
+      <textarea
+        class="form-control"
+        name="content"
+        id="ContactContent"
+        cols="30"
+        rows="5"
+      ></textarea>
+      <div id="error_message_content"></div>
+    </div>
+    <button class="btn btn-danger my-2 my-sm-0" type="submit">Submit</button>
+  </form>
+</div>
+{% endblock %}

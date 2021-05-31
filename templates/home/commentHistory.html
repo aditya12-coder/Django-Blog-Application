@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% block title %} {{post.title}} {% endblock title %}
+{% block body %}
+
+
+{% load humanize %}
+{% load extras %}
+{% load static %}
+
+
+
+<title>{{request.user}} | History</title>
+
+<style>
+    .commentContainer {
+        overflow-x: auto;
+    }
+</style>
+
+
+
+
+
+<style>
+    .commentReplies {
+        background-color: rgb(231, 231, 233);
+        margin: 18px 3px;
+    }
+
+    .commentReplies img {
+        margin: 8px 14px;
+    }
+</style>
+<style>
+    @media only screen and (max-width: 560px) {
+        img.rounded-circle {
+            height: 0px;
+            visibility: hidden;
+        }
+    }
+</style>
+<style>
+    #video-box2 pre code {
+        font-size: 16px;
+    }
+
+    .commentContainer pre {
+        font-size: 14pt;
+
+
+    }
+
+    .tab-pane {
+        min-height: 100vh;
+    }
+
+    div.toolbar-item button {
+        color: white !important;
+        border: 2px solid white !important;
+        margin-right: 23px;
+    }
+
+
+    @media only screen and (max-width: 768px) {
+        img.rounded-circle {
+            height: 0px;
+            visibility: hidden;
+        }
+    }
+
+
+    #previewModal .modal-dialog {
+        max-width: 80%;
+    }
+</style>
+<div class="container  mt-2 my-7">
+    {% if comments|length < 1 %}
+    <h3>You haven't posted any comments</h3>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+     <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>  
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>   
+</div>
+
+
+{% else %}
+
+
+
+<div class="container" style="overflow: hidden;">
+
+    <h3>View you comment history</h3>
+    <br>
+
+
+    <h3> Comments ({{comments.count}}) </h3>
+
+    {% for comment in comments %}
+    <div class="row my-4">
+        <div class="col-sm-3 col-lg-1 col-xl-1">
+            <img id="usrimage" class="w-100 d-block mx-auto rounded-circle img-fluid border border-dark rounded"
+                src="https://toppng.com/uploads/preview/business-loans-person-icon-png-red-1156318777251twznhq7t.png">
+        </div>
+        <div class="col-md-11 ">
+
+            <b> {{comment.user.username}} </b> <span
+                class="badge badge-secondary ">{{comment.timestamp| naturaltime}}</span>
+            <div>{{comment.comment}}</div>
+
+            <div class="reply mx-0">
+
+
+                <style>
+                    .commentReplies {
+                        background-color: rgb(231, 231, 233);
+                        margin: 18px 3px;
+                    }
+                </style>
+
+
+
+
+                <div class="commentReplies">
+                    {% for reply in replyDict|get_val:comment.sno %}
+                    <div class="row my-3">
+
+                        <div class="col-sm-3 col-lg-1 col-xl-1">
+
+                            <img class="w-100 rounded-circle img-fluid border border-dark rounded"
+                                src="https://toppng.com/uploads/preview/business-loans-person-icon-png-red-1156318777251twznhq7t.png">
+                        </div>
+                        <div class="col-md-8 col-lg-10 col-xl-10">
+                            <div class="my-2 mx-2">
+                                <b> {{reply.user.username}}</b> <span
+                                    class="badge badge-secondary">{{reply.timestamp| naturaltime}}
+                                </span><br>
+                                <pre>{{reply.comment}}</pre>
+
+                                <div class="my-2">
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% endfor %}
+</div>
+</div>
+</div>
+
+
+{% endif %}
+
+{% endblock %}

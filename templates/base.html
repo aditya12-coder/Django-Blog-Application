@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="/static/logo2.jpg" type="image/x-icon" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+
+    <title>{% block title %} {% endblock title %}</title>
+  </head>
+  {% load static %}
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+      nav{
+        background: -webkit-repeating-linear-gradient(-45deg, red, blueviolet, blue, crimson);
+
+    font-family: 'Ubuntu', sans-serif;
+      }
+
+
+    .query{
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    #loginbtn{
+       font-family: 'Ubuntu', sans-serif;
+    }
+    #signupbtn{
+        font-family: 'Ubuntu', sans-serif;
+    }
+    .btn{
+       font-family: 'Ubuntu', sans-serif;
+  </style>
+
+  <!-- style="background: #f8f9fa;" -->
+  <body class="my_class">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a style="text-decoration: none; font-size: 2rem" href="/">
+        <span style="color: white">A</span> <span style="color: red">I</span>
+        <span style="color: purple">O</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul
+          style="font-size: 1.2rem; margin-left: 4px"
+          class="navbar-nav mr-auto"
+        >
+          <li class="nav-item {% block homeactive %} {% endblock homeactive %}">
+            <a class="nav-link" href="/"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+
+          <li
+            class="nav-item {% block contactactive %} {% endblock contactactive %}"
+          >
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+
+          <li class="nav-item {% block blogactive %} {% endblock blogactive %}">
+            <a class="nav-link" href="/blog">Blog</a>
+          </li>
+
+          <li
+            class="nav-item {% block videoactive %} {% endblock videoactive %}"
+          >
+            <a class="nav-link" href="/courses">Courses</a>
+          </li>
+
+        </ul>
+
+        <div class="ml-auto form-inline">
+          <form
+            class="form-inline my-2 my-lg-0 mr-3"
+            method="get"
+            action="/search"
+          >
+            <input
+              style="
+                background: none;
+                color: #c6c6c6;
+                font-size: 18px;
+                outline: none !important;
+                padding: 10px 10px 10px 5px;
+                display: block;
+                border: none;
+                border-radius: 0;
+                border-bottom: 1px solid #c6c6c6;
+              "
+              class="mr-2 mr-sm-2"
+              type="search"
+              id="search"
+              placeholder="Search"
+              aria-label="Search"
+              name="query"
+            />
+            <button class="btn my-2 my-sm-0" id="searchbtn" type="submit">
+              Search
+            </button>
+
+            <style type="text/css">
+              #search:focus {
+                outline: none !important;
+                box-shadow: none;
+              }
+
+              ::placeholder {
+                color: white !important;
+              }
+              #loginbtn {
+                background: transparent;
+                border: 2px solid white;
+                color: white;
+                box-shadow: none;
+                transform: 1;
+              }
+
+              #loginbtn:hover {
+                background: -webkit-repeating-linear-gradient(
+                  -45deg,
+                  blueviolet,
+                  red
+                );
+              }
+
+              #signupbtn {
+                background: transparent;
+                border: 2px solid white;
+                color: white;
+                box-shadow: none;
+                transform: 1;
+              }
+
+              #signupbtn:hover {
+                background: -webkit-repeating-linear-gradient(
+                  -45deg,
+                  blueviolet,
+                  red
+                );
+              }
+
+              #searchbtn {
+                background: transparent;
+                border: 2px solid white;
+                color: white;
+                box-shadow: none;
+                transform: 1;
+              }
+
+              #searchbtn:hover {
+                color: white;
+                background: -webkit-repeating-linear-gradient(
+                  -45deg,
+                  blueviolet,
+                  red
+                );
+              }
+
+              #search {
+                margin-bottom: 0.5rem;
+              }
+            </style>
+          </form>
+          {% if user.is_authenticated %}
+
+          <ul class="navbar-nav mr-2">
+                      <div class="container">
+                        <img class="img d-block mx-auto rounded-circle img-fluid border border-dark rounded" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="avatar" />   
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                style="color: white"
+              >
+               Welcome {{request.user}}</a
+              >
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/profile">Profile</a>
+                <a class="dropdown-item" href="/blog/comment/history"
+                  >Comments</a
+                >
+                <a class="dropdown-item" href="/logout">Logout</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        {% else %}
+        <!-- Button to  trigger Login modal -->
+        <div>
+          <a href="/login">
+            <button type="button" id="loginbtn" class="btn">Login</button></a
+          >
+          <a href="/signup"
+            ><button type="button" id="signupbtn" class="btn">SignUp</button></a
+          >
+        </div>
+
+        {% endif %}
+      </div>
+    </nav>
+    {% for message in messages %}
+    <div
+      style="background-color: none"
+      class="alert alert-{{ message.tags }} alert-dismissible fade show"
+      role="alert"
+    >
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <strong>Message : </strong><span> {{ message }}</span>
+    </div>
+    {% endfor %} {% block body %} {% endblock body %} {% block js %} {% endblock js %}
+{% block css %}{% endblock css %}
+{% block content %}{% endblock content %}
+{% block extra_js %}{% endblock extra_js %}
+
+    <footer class="footer" style="text-align: center">
+      © 2020-2021 All Right Reserved
+      <a style="color: white" href="21aditya.pythonanywhere.com">AIO</a>
+    </footer>
+
+    <style>
+      .footer {
+        background: -webkit-repeating-linear-gradient(
+          -45deg,
+          crimson,
+          purple,
+          blue
+        );
+        color: white;
+        line-height: 50px;
+        padding: 0 20px;
+        height: 50px;
+      }
+      .img{
+        max-width: 40px;
+        max-height: 40px;
+
+      }
+    </style>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+

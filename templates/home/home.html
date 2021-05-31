@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block homeactive %} active {% endblock homeactive %}
+{% load static %}
+{% block body %}
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/tailwindcss@%5E1.0/dist/tailwind.min.css">
+     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+<section class="jumbotron">
+
+<div class="jumbotron my-3">
+  <div class="container">
+  <h1 class="display-4">
+         <div class="home-content">
+            <div style="text-align: center;"  class="text-3"> <span style="font-size: 3rem; " class="typing"></span></div>
+        </div>
+
+  </h1>
+<p class="lead text-muted">We are AIO. AIO stands for "ALL IN ONE". We are here to provide different kind of services in one place. We have made AIO to solve the tension of people not finding all the things in one place. I hope AIO has helped you to find your needs
+
+
+          <div class="text-center">
+          <p>
+            <a href="/blog" class="btn btn-outline-danger my-2">Browse Blog</a>
+            <a href="/courses" class="btn btn-outline-secondary my-2">Video courses</a>
+            <a href="/contact" class="btn btn-outline-primary my-2">Contact Me</a>
+        </p>
+          </div>
+
+
+
+  </div>
+  <script>
+        var typed = new Typed(".typing", {
+        strings: [ "Welcome to AIO.", "Not Finding what are you searching ", "Don't worry we have got a lot of things 🙂"],
+        typeSpeed: 40,
+        backSpeed: 20,
+        loop: true
+
+
+
+
+    });
+
+  </script>
+
+
+
+</div>
+</div>
+</div>
+
+</section>
+
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-10 mx-auto">
+    <div class="flex flex-wrap -m-4">
+      <div class="p-4 md:w-1/3">
+        <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+          <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="static/blogiimage.jpg" alt="blog">
+          <div class="p-6">
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Articles</h1>
+            <p class="leading-relaxed mb-3">Read Our Blogs</p>
+            <div class="flex items-center flex-wrap ">
+              <a  href="/blog" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Go to Blog
+                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/3">
+        <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+          <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="static/videoimg.jpg" alt="blog">
+          <div class="p-6">
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Video courses</h1>
+            <p class="leading-relaxed mb-3">Browse our Courses</p>
+            <div class="flex items-center flex-wrap">
+              <a href="/courses" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Browse Courses
+                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/3">
+        <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+          <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="static/contact.png" alt="blog">
+          <div class="p-6">
+            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Contact AIO</h1>
+            <p class="leading-relaxed mb-3">Contact us For any inquery</p>
+            <div class="flex items-center flex-wrap ">
+              <a href="/contact" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Contact us
+                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <style type="text/css">
+    * {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: blueviolet;
+}
+
+
+
+
+
+.container {
+  margin: 3rem auto;
+  padding: 3rem;
+  border: 1px solid #ddd;
+  border-radius: .25rem;
+  background-color: white;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+
+    </style>
+
+
+{% endblock %}
